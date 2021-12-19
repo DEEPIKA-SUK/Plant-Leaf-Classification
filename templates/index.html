@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Predict</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='./css/style.css')}}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center d-flex">
+        <div class="col-12 text-center py-5">
+          <h1 >Plant Leaf Classification</h1>
+            <div class="card py-3 justify-content-center text-white bg-success shadow-lg">
+              <form action="{{ url_for('test_image') }}" method="post"  enctype="multipart/form-data">
+                <div class="form-card" >
+                  <div class="row justify-content-between">
+                    <div class="form-group col-3  flex-column d-flex text-left"> <label class="form-control-label px-3" style="color:orange;"><b>Upload Image 1 (.jpg only)</b><span class="text-white"> *</span></label>
+                    <input style="border-bottom: none;" id="file1" type="file" name="file1" required/>
+                  </div>
+                    <div class="form-group col-3 flex-column d-flex text-left"> <label class="form-control-label px-3" style="color:cyan;"><b>Upload Image 2 (.jpg only)</b><span class="text-white"> *</span></label>
+                    <input style="border-bottom: none;" id="file2" type="file" name="file2" required/>
+                  </div>
+                    <div class="form-group col-3  flex-column d-flex text-left"> <label class="form-control-label px-3" style="color:yellow;"><b>Upload Image 3 (.jpg only)</b><span class="text-white"> *</span></label>
+                    <input style="border-bottom: none;" id="file3" type="file" name="file3" required/>
+                  </div>
+                    <div class="form-group col-3 flex-column d-flex text-left"> <label class="form-control-label px-3" style="color:pink;"><b>Upload Image 4 (.jpg only)</b><span class="text-white"> *</span></label>
+                    <input style="border-bottom: none;" id="file4" type="file" name="file4" required/>
+                  </div>
+                </div>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-sm-4"> <button type="submit" class="shadow btn-block btn-warning">Classify</button> </div>
+                    </div>
+                </div>
+              </form>
+        </div>
+      </div>
+
+    <br>
+    <div class="card-deck py-5">
+  <div class="card text-white bg-success shadow-lg ">
+    <div class="card-body">
+      <ul>
+        {%if 'pubescent bamboo'==img1%}
+        <li style="color:orange;">pubescent bamboo</li>
+        {%elif 'pubescent bamboo'==img2%}
+        <li style="color:cyan;">pubescent bamboo</li>
+        {%elif 'pubescent bamboo'==img3%}
+        <li style="color:yellow;">pubescent bamboo</li>
+        {%elif 'pubescent bamboo'==img4%}
+        <li style="color:pink;">pubescent bamboo</li>
+        {%else%}
+        <li>pubescent bamboo</li>
+        {%endif%}
+
+        {%if 'Chinese horse chestnut'==img1%}
+        <li style="color:orange;">Chinese horse chestnut</li>
+        {%elif 'Chinese horse chestnut'==img2%}
+        <li style="color:cyan;">Chinese horse chestnut</li>
+        {%elif 'Chinese horse chestnut'==img3%}
+        <li style="color:yellow;">Chinese horse chestnut</li>
+        {%elif 'Chinese horse chestnut'==img4%}
+        <li style="color:pink;">Chinese horse chestnut</li>
+        {%else%}
+        <li>Chinese horse chestnut</li>
+        {%endif%}
+
+        {%if 'Anhui Barberry'==img1%}
+        <li style="color:orange;">Anhui Barberry</li>
+        {%elif 'Anhui Barberry'==img2%}
+        <li style="color:cyan;">Anhui Barberry</li>
+        {%elif 'Anhui Barberry'==img3%}
+        <li style="color:yellow;">Anhui Barberry</li>
+        {%elif 'Anhui Barberry'==img4%}
+        <li style="color:pink;">Anhui Barberry</li>
+        {%else%}
+        <li>Anhui Barberry</li>
+        {%endif%}
+
+        {%if 'Chinese redbud'==img1%}
+        <li style="color:orange;">Chinese redbud</li>
+        {%elif 'Chinese redbud'==img2%}
+        <li style="color:cyan;">Chinese redbud</li>
+        {%elif 'Chinese redbud'==img3%}
+        <li style="color:yellow;">Chinese redbud</li>
+        {%elif 'Chinese redbud'==img4%}
+        <li style="color:pink;">Chinese redbud</li>
+        {%else%}
+        <li>Chinese redbud</li>
+        {%endif%}
+
+        {%if 'true indigo'==img1%}
+        <li style="color:orange;">true indigo</li>
+        {%elif 'true indigo'==img2%}
+        <li style="color:cyan;">true indigo</li>
+        {%elif 'true indigo'==img3%}
+        <li style="color:yellow;">true indigo</li>
+        {%elif 'true indigo'==img4%}
+        <li style="color:pink;">true indigo</li>
+        {%else%}
+        <li>true indigo</li>
+        {%endif%}
+
+        {%if 'Japanese maple'==img1%}
+        <li style="color:orange;">Japanese maple</li>
+        {%elif 'Japanese maple'==img2%}
+        <li style="color:cyan;">Japanese maple</li>
+        {%elif 'Japanese maple'==img3%}
+        <li style="color:yellow;">Japanese maple</li>
+        {%elif 'Japanese maple'==img4%}
+        <li style="color:pink;">Japanese maple</li>
+        {%else%}
+        <li>Japanese maple</li>
+        {%endif%}
+
+        {%if 'Nanmu'==img1%}
+        <li style="color:orange;">Nanmu</li>
+        {%elif 'Nanmu'==img2%}
+        <li style="color:cyan;">Nanmu</li>
+        {%elif 'Nanmu'==img3%}
+        <li style="color:yellow;">Nanmu</li>
+        {%elif 'Nanmu'==img4%}
+        <li style="color:pink;">Nanmu</li>
+        {%else%}
+        <li>Nanmu</li>
+        {%endif%}
+
+        {%if 'castor aralia'==img1%}
+        <li style="color:orange;">castor aralia</li>
+        {%elif 'castor aralia'==img2%}
+        <li style="color:cyan;">castor aralia</li>
+        {%elif 'castor aralia'==img3%}
+        <li style="color:yellow;">castor aralia</li>
+        {%elif 'castor aralia'==img4%}
+        <li style="color:pink;">castor aralia</li>
+        {%else%}
+        <li>castor aralia</li>
+        {%endif%}
+
+      </ul>
+     </div>
+  </div>
+  <div class="card text-white bg-success shadow-lg ">
+    <div class="card-body">
+      <ul>
+        {%if 'goldenrain tree'==img1%}
+        <li style="color:orange;">goldenrain tree</li>
+        {%elif 'goldenrain tree'==img2%}
+        <li style="color:cyan;">goldenrain tree</li>
+        {%elif 'goldenrain tree'==img3%}
+        <li style="color:yellow;">goldenrain tree</li>
+        {%elif 'goldenrain tree'==img4%}
+        <li style="color:pink;">goldenrain tree</li>
+        {%else%}
+        <li>goldenrain tree</li>
+        {%endif%}
+
+        {%if 'Big-fruited Holly'==img1%}
+        <li style="color:orange;">Big-fruited Holly</li>
+        {%elif 'Big-fruited Holly'==img2%}
+        <li style="color:cyan;">Big-fruited Holly</li>
+        {%elif 'Big-fruited Holly'==img3%}
+        <li style="color:yellow;">Big-fruited Holly</li>
+        {%elif 'Big-fruited Holly'==img4%}
+        <li style="color:pink;">Big-fruited Holly</li>
+        {%else%}
+        <li>Big-fruited Holly</li>
+        {%endif%}
+
+        {%if 'Japanese cheesewood'==img1%}
+        <li style="color:orange;">Japanese cheesewood</li>
+        {%elif 'Japanese cheesewood'==img2%}
+        <li style="color:cyan;">Japanese cheesewood</li>
+        {%elif 'Japanese cheesewood'==img3%}
+        <li style="color:yellow;">Japanese cheesewood</li>
+        {%elif 'Japanese cheesewood'==img4%}
+        <li style="color:pink;">Japanese cheesewood</li>
+        {%else%}
+        <li>Japanese cheesewood</li>
+        {%endif%}
+
+        {%if 'wintersweet'==img1%}
+        <li style="color:orange;">wintersweet</li>
+        {%elif 'wintersweet'==img2%}
+        <li style="color:cyan;">wintersweet</li>
+        {%elif 'wintersweet'==img3%}
+        <li style="color:yellow;">wintersweet</li>
+        {%elif 'wintersweet'==img4%}
+        <li style="color:pink;">wintersweet</li>
+        {%else%}
+        <li>wintersweet</li>
+        {%endif%}
+
+        {%if 'camphortree'==img1%}
+        <li style="color:orange;">camphortree</li>
+        {%elif 'camphortree'==img2%}
+        <li style="color:cyan;">camphortree</li>
+        {%elif 'camphortree'==img3%}
+        <li style="color:yellow;">camphortree</li>
+        {%elif 'camphortree'==img4%}
+        <li style="color:pink;">camphortree</li>
+        {%else%}
+        <li>camphortree</li>
+        {%endif%}
+
+        {%if 'Japan Arrowwood'==img1%}
+        <li style="color:orange;">Japan Arrowwood</li>
+        {%elif 'Japan Arrowwood'==img2%}
+        <li style="color:cyan;">Japan Arrowwood</li>
+        {%elif 'Japan Arrowwood'==img3%}
+        <li style="color:yellow;">Japan Arrowwood</li>
+        {%elif 'Japan Arrowwood'==img4%}
+        <li style="color:pink;">Japan Arrowwood</li>
+        {%else%}
+        <li>Japan Arrowwood</li>
+        {%endif%}
+
+        {%if 'sweet osmanthus'==img1%}
+        <li style="color:orange;">sweet osmanthus</li>
+        {%elif 'sweet osmanthus'==img2%}
+        <li style="color:cyan;">sweet osmanthus</li>
+        {%elif 'sweet osmanthus'==img3%}
+        <li style="color:yellow;">sweet osmanthus</li>
+        {%elif 'sweet osmanthus'==img4%}
+        <li style="color:pink;">sweet osmanthus</li>
+        {%else%}
+        <li>sweet osmanthus</li>
+        {%endif%}
+
+        {%if 'ginkgo, maidenhair tree'==img1%}
+        <li style="color:orange;">ginkgo, maidenhair tree</li>
+        {%elif 'ginkgo, maidenhair tree'==img2%}
+        <li style="color:cyan;">ginkgo, maidenhair tree</li>
+        {%elif 'ginkgo, maidenhair tree'==img3%}
+        <li style="color:yellow;">ginkgo, maidenhair tree</li>
+        {%elif 'ginkgo, maidenhair tree'==img4%}
+        <li style="color:pink;">ginkgo, maidenhair tree</li>
+        {%else%}
+        <li>ginkgo, maidenhair tree</li>
+        {%endif%}
+
+      </ul>
+    </div>
+  </div>
+  <div class="card text-white bg-success shadow-lg ">
+    <div class="card-body">
+      <ul>
+        {%if 'deodar'==img1%}
+        <li style="color:orange;">deodar</li>
+        {%elif 'deodar'==img2%}
+        <li style="color:cyan;">deodar</li>
+        {%elif 'deodar'==img3%}
+        <li style="color:yellow;">deodar</li>
+        {%elif 'deodar'==img4%}
+        <li style="color:pink;">deodar</li>
+        {%else%}
+        <li>deodar</li>
+        {%endif%}
+
+        {%if 'oleander'==img1%}
+        <li style="color:orange;">oleander</li>
+        {%elif 'oleander'==img2%}
+        <li style="color:cyan;">oleander</li>
+        {%elif 'oleander'==img3%}
+        <li style="color:yellow;">oleander</li>
+        {%elif 'oleander'==img4%}
+        <li style="color:pink;">oleander</li>
+        {%else%}
+        <li>oleander</li>
+        {%endif%}
+
+        {%if 'yew plum pine'==img1%}
+        <li style="color:orange;">yew plum pine</li>
+        {%elif 'yew plum pine'==img2%}
+        <li style="color:cyan;">yew plum pine</li>
+        {%elif 'yew plum pine'==img3%}
+        <li style="color:yellow;">yew plum pine</li>
+        {%elif 'yew plum pine'==img4%}
+        <li style="color:pink;">yew plum pine</li>
+        {%else%}
+        <li>yew plum pine</li>
+        {%endif%}
+
+        {%if 'Japanese Flowering Cherry'==img1%}
+        <li style="color:orange;">Japanese Flowering Cherry</li>
+        {%elif 'Japanese Flowering Cherry'==img2%}
+        <li style="color:cyan;">Japanese Flowering Cherry</li>
+        {%elif 'Japanese Flowering Cherry'==img3%}
+        <li style="color:yellow;">Japanese Flowering Cherry</li>
+        {%elif 'Japanese Flowering Cherry'==img4%}
+        <li style="color:pink;">Japanese Flowering Cherry</li>
+        {%else%}
+        <li>Japanese Flowering Cherry</li>
+        {%endif%}
+
+        {%if 'Glossy Privet'==img1%}
+        <li style="color:orange;">Glossy Privet</li>
+        {%elif 'Glossy Privet'==img2%}
+        <li style="color:cyan;">Glossy Privet</li>
+        {%elif 'Glossy Privet'==img3%}
+        <li style="color:yellow;">Glossy Privet</li>
+        {%elif 'Glossy Privet'==img4%}
+        <li style="color:pink;">Glossy Privet</li>
+        {%else%}
+        <li>Glossy Privet</li>
+        {%endif%}
+
+        {%if 'Chinese Toon'==img1%}
+        <li style="color:orange;">Chinese Toon</li>
+        {%elif 'Chinese Toon'==img2%}
+        <li style="color:cyan;">Chinese Toon</li>
+        {%elif 'Chinese Toon'==img3%}
+        <li style="color:yellow;">Chinese Toon</li>
+        {%elif 'Chinese Toon'==img4%}
+        <li style="color:pink;">Chinese Toon</li>
+        {%else%}
+        <li>Chinese Toon</li>
+        {%endif%}
+
+        {%if 'peach'==img1%}
+        <li style="color:orange;">peach</li>
+        {%elif 'peach'==img2%}
+        <li style="color:cyan;">peach</li>
+        {%elif 'peach'==img3%}
+        <li style="color:yellow;">peach</li>
+        {%elif 'peach'==img4%}
+        <li style="color:pink;">peach</li>
+        {%else%}
+        <li>peach</li>
+        {%endif%}
+
+        {%if 'Ford Woodlotus'==img1%}
+        <li style="color:orange;">Ford Woodlotus</li>
+        {%elif 'Ford Woodlotus'==img2%}
+        <li style="color:cyan;">Ford Woodlotus</li>
+        {%elif 'Ford Woodlotus'==img3%}
+        <li style="color:yellow;">Ford Woodlotus</li>
+        {%elif 'Ford Woodlotus'==img4%}
+        <li style="color:pink;">Ford Woodlotus</li>
+        {%else%}
+        <li>Ford Woodlotus</li>
+        {%endif%}
+
+      </ul>
+    </div>
+  </div>
+      <div class="card text-white bg-success shadow-lg">
+    <div class="card-body">
+       <ul>
+         {%if 'Crape myrtle, Crepe myrtle'==img1%}
+        <li style="color:orange;">Crape myrtle, Crepe myrtle</li>
+        {%elif 'Crape myrtle, Crepe myrtle'==img2%}
+        <li style="color:cyan;">Crape myrtle, Crepe myrtle</li>
+        {%elif 'Crape myrtle, Crepe myrtle'==img3%}
+        <li style="color:yellow;">Crape myrtle, Crepe myrtle</li>
+        {%elif 'Crape myrtle, Crepe myrtle'==img4%}
+        <li style="color:pink;">Crape myrtle, Crepe myrtle</li>
+        {%else%}
+        <li>Crape myrtle, Crepe myrtle</li>
+        {%endif%}
+
+         {%if 'trident maple'==img1%}
+        <li style="color:orange;">trident maple</li>
+        {%elif 'trident maple'==img2%}
+        <li style="color:cyan;">trident maple</li>
+        {%elif 'trident maple'==img3%}
+        <li style="color:yellow;">trident maple</li>
+        {%elif 'trident maple'==img4%}
+        <li style="color:pink;">trident maple</li>
+        {%else%}
+        <li>trident maple</li>
+        {%endif%}
+
+        {%if 'Beales barberry'==img1%}
+        <li style="color:orange;">Beales barberry</li>
+        {%elif 'Beales barberry'==img2%}
+        <li style="color:cyan;">Beales barberry</li>
+        {%elif 'Beales barberry'==img3%}
+        <li style="color:yellow;">Beales barberry</li>
+        {%elif 'Beales barberry'==img4%}
+        <li style="color:pink;">Beales barberry</li>
+        {%else%}
+        <li>Beales barberry</li>
+        {%endif%}
+
+        {%if 'southern magnolia'==img1%}
+        <li style="color:orange;">southern magnolia</li>
+        {%elif 'southern magnolia'==img2%}
+        <li style="color:cyan;">southern magnolia</li>
+        {%elif 'southern magnolia'==img3%}
+        <li style="color:yellow;">southern magnolia</li>
+        {%elif 'southern magnolia'==img4%}
+        <li style="color:pink;">southern magnolia</li>
+        {%else%}
+        <li>southern magnolia</li>
+        {%endif%}
+
+        {%if 'Canadian poplar'==img1%}
+        <li style="color:orange;">Canadian poplar</li>
+        {%elif 'Canadian poplar'==img2%}
+        <li style="color:cyan;">Canadian poplar</li>
+        {%elif 'Canadian poplar'==img3%}
+        <li style="color:yellow;">Canadian poplar</li>
+        {%elif 'Canadian poplar'==img4%}
+        <li style="color:pink;">Anhui Barberry</li>
+        {%else%}
+        <li>Canadian poplar</li>
+        {%endif%}
+
+        {%if 'Chinese tulip tree'==img1%}
+        <li style="color:orange;">Chinese tulip tree</li>
+        {%elif 'Chinese tulip tree'==img2%}
+        <li style="color:cyan;">Chinese tulip tree</li>
+        {%elif 'Chinese tulip tree'==img3%}
+        <li style="color:yellow;">Chinese tulip tree</li>
+        {%elif 'Chinese tulip tree'==img4%}
+        <li style="color:pink;">Chinese tulip tree</li>
+        {%else%}
+        <li>Chinese tulip tree</li>
+        {%endif%}
+
+        {%if 'tangerine'==img1%}
+        <li style="color:orange;">tangerine</li>
+        {%elif 'tangerine'==img2%}
+        <li style="color:cyan;">tangerine</li>
+        {%elif 'tangerine'==img3%}
+        <li style="color:yellow;">tangerine</li>
+        {%elif 'tangerine'==img4%}
+        <li style="color:pink;">tangerine</li>
+        {%else%}
+        <li>tangerine</li>
+        {%endif%}
+
+         {%if 'Chinese cinnamon'==img1%}
+        <li style="color:orange;">Chinese cinnamon</li>
+        {%elif 'Chinese cinnamon'==img2%}
+        <li style="color:cyan;">Chinese cinnamon</li>
+        {%elif 'Chinese cinnamon'==img3%}
+        <li style="color:yellow;">Chinese cinnamon</li>
+        {%elif 'Chinese cinnamon'==img4%}
+        <li style="color:pink;">Chinese cinnamon</li>
+        {%else%}
+        <li>Chinese cinnamon</li>
+        {%endif%}
+
+      </ul>
+    </div>
+  </div>
+</div>
+          <br>
+          {%if msg%}
+          <div class="alert alert-success" role="alert">
+            {{msg}}
+          </div>
+          {%endif%}
+
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  </body>
+</html>
